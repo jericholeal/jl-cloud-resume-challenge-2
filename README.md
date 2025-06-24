@@ -1,2 +1,16 @@
-# jl-cloud-resume-project-2
-My second go at the Cloud Resume Challenge.
+# Jericho's Cloud Resume Challenge (Take Two)
+
+## Live Site
+
+## Project Overview
+
+**Key Features:**
+
+## Tech Stack
+
+## Visitor Counter
+
+## CI/CD
+
+## References & Credits
+
