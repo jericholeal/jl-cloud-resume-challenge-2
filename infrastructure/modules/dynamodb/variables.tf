@@ -27,5 +27,5 @@ variable "dynamodb_table_counter_attribute" {
 
 variable "dynamodb_terraform_lock_table_name" {
   description = "Name of DynamoDB table for Terraform lock"
-  type = string
+  type        = string
 }

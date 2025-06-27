@@ -18,9 +18,9 @@ resource "aws_dynamodb_table" "jlcrc2_visitor_counter_table" {
 }
 
 resource "aws_dynamodb_table" "jlcrc2_terraform_lock_table" {
-  name = var.dynamodb_terraform_lock_table_name
+  name         = var.dynamodb_terraform_lock_table_name
   billing_mode = "PAY_PER_REQUEST"
-  hash_key = "LockID"
+  hash_key     = "LockID"
 
   attribute {
     name = "LockID"

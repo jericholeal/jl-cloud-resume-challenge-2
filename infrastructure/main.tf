@@ -1,10 +1,13 @@
 resource "terraform_lock_table" "default" {
-  name = var.dynamodb_terraform_lock_table_name
+  name   = var.dynamodb_terraform_lock_table_name
   region = var.aws_region
 }
 
 module "acm" {
   source = "./modules/acm"
+  providers = {
+    aws = aws.us_east_1
+  }
 
   jlcrc2_domain_name         = var.jlcrc2_domain_name
   jlcrc2_route53_zone_id     = module.route53.jlcrc2_route53_zone_id
@@ -42,11 +45,11 @@ module "cloudwatch" {
 module "dynamodb" {
   source = "./modules/dynamodb"
 
-  project_name                     = var.project_name
-  dynamodb_table_name              = var.dynamodb_table_name
-  dynamodb_table_partition_key     = var.dynamodb_table_partition_key
-  dynamodb_table_partition_value   = var.dynamodb_table_partition_value
-  dynamodb_table_counter_attribute = var.dynamodb_table_counter_attribute
+  project_name                       = var.project_name
+  dynamodb_table_name                = var.dynamodb_table_name
+  dynamodb_table_partition_key       = var.dynamodb_table_partition_key
+  dynamodb_table_partition_value     = var.dynamodb_table_partition_value
+  dynamodb_table_counter_attribute   = var.dynamodb_table_counter_attribute
   dynamodb_terraform_lock_table_name = var.dynamodb_terraform_lock_table_name
 }
 
