@@ -6,10 +6,10 @@ from botocore.exceptions import ClientError
 from decimal import Decimal
 
 # ENVs
-TABLE_NAME = os.environ.get("TABLE_NAME", "jlcrc2_visitor_counter")
-PARTITION_KEY = os.environ.get("PARTITION_KEY", "id")
-PARTITION_VALUE = os.environ.get("PARTITION_VALUE", "visitor_counter")
-COUNTER_ATTRIBUTE = os.environ.get("COUNTER_ATTRIBUTE", "visitor_count")
+TABLE_NAME = os.environ.get("TABLE_NAME", "jlcrc2-visitor-counter")
+PARTITION_KEY = os.environ.get("PARTITION_KEY", "pk")
+PARTITION_VALUE = os.environ.get("PARTITION_VALUE", "visitorCounter")
+COUNTER_ATTRIBUTE = os.environ.get("COUNTER_ATTRIBUTE", "visitCount")
 
 # Initialize DynamoDB service client
 dynamodb = boto3.resource("dynamodb")
