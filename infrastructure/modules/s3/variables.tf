@@ -35,7 +35,7 @@ variable "jlcrc2_lambda_exec_role_arn" {
   type        = string
 }
 
-variable "jlcrc2_distribution_id" {
-  description = "ID of the CloudFront distribution"
+variable "jlcrc2_oac_id" {
+  description = "ID of the OAC for CloudFront access"
   type        = string
 }

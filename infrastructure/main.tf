@@ -5,10 +5,9 @@ resource "terraform_lock_table" "default" {
 
 module "acm" {
   source = "./modules/acm"
-  
+
   jlcrc2_domain_name         = var.jlcrc2_domain_name
   jlcrc2_route53_zone_id     = module.route53.jlcrc2_route53_zone_id
-  jlcrc2_cert_validation_arn = local.jlcrc2_cert_validation_arn
   providers = {
     aws = aws.us_east_1
   }
@@ -82,7 +81,6 @@ module "s3" {
 
   project_name                 = var.project_name
   account_id                   = local.account_id
-  jlcrc2_distribution_id       = module.cloudfront.jlcrc2_distribution_id
   frontend_s3_bucket_name      = var.frontend_s3_bucket_name
   lambda_s3_bucket_name        = var.lambda_s3_bucket_name
   frontend_logs_s3_bucket_name = var.frontend_logs_s3_bucket_name

@@ -29,6 +29,6 @@ resource "aws_route53_record" "jlcrc2_cert_validation" {
 
 # Validate the ACM certificate using DNS validation once the record is created
 resource "aws_acm_certificate_validation" "jlcrc2_cert_validation" {
-  certificate_arn         = var.jlcrc2_cert_validation_arn
+  certificate_arn         = aws_acm_certificate.jlcrc2_cert.arn
   validation_record_fqdns = [for record in aws_route53_record.jlcrc2_cert_validation : record.fqdn]
 }

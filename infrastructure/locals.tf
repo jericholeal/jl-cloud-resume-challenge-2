@@ -21,6 +21,7 @@ locals {
   # CloudFront
   jlcrc2_distribution_domain_name = module.cloudfront.jlcrc2_distribution_domain_name
   jlcrc2_distribution_id          = module.cloudfront.jlcrc2_distribution_id
+  jlcrc2_oac_id                   = module.cloudfront.jlcrc2_oac_id
 
   # DynamoDB
   jlcrc2_dynamodb_table_arn = module.dynamodb.jlcrc2_visitor_counter_table_arn
