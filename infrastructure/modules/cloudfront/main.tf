@@ -13,7 +13,7 @@ resource "aws_cloudfront_origin_access_control" "oac" {
 resource "aws_cloudfront_distribution" "jlcrc2_distribution" {
   origin {
     domain_name              = var.jlcrc2_frontend_bucket_domain_name
-    origin_id                = var.jlcrc2_s3_origin_id
+    origin_id                = "s3-${var.jlcrc2_frontend_bucket}"
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
   }
 
@@ -36,7 +36,7 @@ resource "aws_cloudfront_distribution" "jlcrc2_distribution" {
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = var.jlcrc2_s3_origin_id
+    target_origin_id = "s3-${var.jlcrc2_frontend_bucket}"
     compress         = true # for performance optimization
 
     forwarded_values {
