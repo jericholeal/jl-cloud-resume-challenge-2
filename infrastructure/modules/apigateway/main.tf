@@ -58,7 +58,7 @@ resource "aws_api_gateway_method" "increment_options" {
 }
 
 # Integrate OPTIONS method with Lambda function
-resource "aws_api_gateway_integration" "increment_options_lamba" {
+resource "aws_api_gateway_integration" "increment_options_lambda" {
   rest_api_id             = aws_api_gateway_rest_api.jlcrc2_api.id
   resource_id             = aws_api_gateway_resource.increment.id
   http_method             = aws_api_gateway_method.increment_options.http_method
@@ -121,7 +121,7 @@ resource "aws_lambda_permission" "increment_get_permission" {
 # Deploy API (required for API Gateway to be accessible)
 resource "aws_api_gateway_deployment" "lambda_function_trigger_deployment" {
   depends_on = [
-    aws_api_gateway_integration.increment_post_lamba,
+    aws_api_gateway_integration.increment_post_lambda,
     aws_api_gateway_integration.increment_get_lambda,
     aws_api_gateway_integration.increment_options_lambda,
   ]
