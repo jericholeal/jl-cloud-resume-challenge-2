@@ -20,11 +20,6 @@ variable "account_id" {
   type        = string
 }
 
-variable "jlcrc2_s3_origin_id" {
-  description = "The origin ID for the S3 bucket in CloudFront"
-  type        = string
-}
-
 variable "jlcrc2_frontend_bucket_domain_name" {
   description = "Domain name of the S3 bucket for the frontend"
   type        = string

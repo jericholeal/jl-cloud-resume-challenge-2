@@ -9,7 +9,6 @@ locals {
   # ACM
   jlcrc2_cert_id             = module.acm.acm_certificate_id
   jlcrc2_cert_arn            = module.acm.acm_certificate_arn
-  jlcrc2_cert_validation_arn = module.acm.acm_certificate_validation_arn
 
   # Lambda
   jlcrc2_visitor_counter_function_name = module.lambda.jlcrc2_visitor_counter_function_name

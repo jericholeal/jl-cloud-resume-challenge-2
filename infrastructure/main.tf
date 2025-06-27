@@ -1,8 +1,3 @@
-resource "terraform_lock_table" "default" {
-  name   = var.dynamodb_terraform_lock_table_name
-  region = var.aws_region
-}
-
 module "acm" {
   source = "./modules/acm"
 
@@ -26,9 +21,8 @@ module "cloudfront" {
 
   project_name                       = var.project_name
   account_id                         = local.account_id
-  acm_certificate_arn                = module.acm.certificate_arn
+  acm_certificate_arn                = module.acm.acm_certificate_arn
   jlcrc2_frontend_bucket             = var.frontend_s3_bucket_name
-  jlcrc2_s3_origin_id                = module.s3.jlcrc2_s3_origin_id
   jlcrc2_frontend_bucket_domain_name = module.s3.jlcrc2_frontend_bucket_domain_name
   frontend_logs_s3_bucket_name       = var.frontend_logs_s3_bucket_name
 }

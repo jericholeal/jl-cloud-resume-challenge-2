@@ -15,10 +15,6 @@ output "jlcrc2_lambda_exec_policy_name" {
   value       = aws_iam_role_policy.jlcrc2_lambda_policy.name
 }
 
-output "jlcrc2_lambda_exec_policy_arn" {
-  description = "The ARN of the Lambda execution policy"
-  value       = aws_iam_role_policy.jlcrc2_lambda_policy.arn
-}
 
 output "jlcrc2_visitor_counter_function_name" {
   description = "The name of the Lambda function for visitor counter"
