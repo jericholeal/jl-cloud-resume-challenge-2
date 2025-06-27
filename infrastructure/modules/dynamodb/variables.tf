@@ -24,3 +24,8 @@ variable "dynamodb_table_counter_attribute" {
   description = "DynamoDB table counter attribute"
   type        = string
 }
+
+variable "dynamodb_terraform_lock_table_name" {
+  description = "Name of DynamoDB table for Terraform lock"
+  type = string
+}

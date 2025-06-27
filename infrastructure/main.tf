@@ -1,3 +1,8 @@
+resource "terraform_lock_table" "default" {
+  name = var.dynamodb_terraform_lock_table_name
+  region = var.aws_region
+}
+
 module "acm" {
   source = "./modules/acm"
 
