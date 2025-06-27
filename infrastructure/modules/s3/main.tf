@@ -44,11 +44,6 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "jlcrc2_frontend_e
   }
 }
 
-resource "aws_s3_bucket_acl" "jlcrc2_frontend_bucket_acl" {
-  bucket = aws_s3_bucket.jlcrc2_frontend_bucket.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_versioning" "jlcrc2_frontend_bucket_versioning" {
   bucket = aws_s3_bucket.jlcrc2_frontend_bucket.id
   versioning_configuration {
@@ -68,11 +63,6 @@ resource "aws_s3_bucket" "jlcrc2_frontend_logs_bucket" {
     Purpose = "CloudFront logging"
   }
 }
-resource "aws_s3_bucket_acl" "jlcrc2_frontend_logs_acl" {
-  bucket = aws_s3_bucket.jlcrc2_frontend_logs_bucket.id
-  acl    = "log-delivery-write"
-}
-
 resource "aws_s3_bucket_versioning" "jlcrc2_frontend_logs_versioning" {
   bucket = aws_s3_bucket.jlcrc2_frontend_logs_bucket.id
   versioning_configuration {
@@ -114,11 +104,6 @@ resource "aws_s3_bucket" "jlcrc2_lambda_bucket" {
   }
 }
 
-resource "aws_s3_bucket_acl" "jlcrc2_lambda_bucket_acl" {
-  bucket = aws_s3_bucket.jlcrc2_lambda_bucket.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_versioning" "jlcrc2_lambda_bucket_versioning" {
   bucket = aws_s3_bucket.jlcrc2_lambda_bucket.id
   versioning_configuration {
@@ -154,12 +139,6 @@ resource "aws_s3_bucket" "jlcrc2_terraform_state_bucket" {
     Purpose = "Terraform state storage"
   }
 }
-
-resource "aws_s3_bucket_acl" "jlcrc2_terraform_state_bucket_acl" {
-  bucket = aws_s3_bucket.jlcrc2_terraform_state_bucket.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_versioning" "jlcrc2_terraform_state_bucket_versioning" {
   bucket = aws_s3_bucket.jlcrc2_terraform_state_bucket.id
   versioning_configuration {
