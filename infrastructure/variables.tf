@@ -76,6 +76,11 @@ variable "dynamodb_table_counter_attribute" {
   type        = string
 }
 
+variable "dynamodb_terraform_lock_table_name" {
+  description = "Name for Terraform lock DynamoDB table"
+  type        = string
+}
+
 # Route53
 
 variable "jlcrc2_domain_name" {

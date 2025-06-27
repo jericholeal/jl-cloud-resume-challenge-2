@@ -13,10 +13,11 @@ lambda_function_name  = "jlcrc2_visitor_counter"
 lambda_exec_role_name = "jlcrc2-lambda-exec-role"
 
 # DynamoDB
-dynamodb_table_name              = "jlcrc2-visitor-counter"
-dynamodb_table_partition_key     = "pk"
-dynamodb_table_partition_value   = "VISITOR_COUNTER"
-dynamodb_table_counter_attribute = "visitCount"
+dynamodb_table_name                = "jlcrc2-visitor-counter"
+dynamodb_table_partition_key       = "pk"
+dynamodb_table_partition_value     = "VISITOR_COUNTER"
+dynamodb_table_counter_attribute   = "visitCount"
+dynamodb_terraform_lock_table_name = "jlcrc2-terraform-lock"
 
 # Route53
 jlcrc2_domain_name = "jlcrc.cloud"
