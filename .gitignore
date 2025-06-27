@@ -1,0 +1,44 @@
+# .gitignore for jl-cloud-resume-challenge-2
+
+# Terraform state and backup files
+*.tfstate
+*.tfstate.*
+.terraform/
+crash.log
+*.tfvars.backup
+*.tfplan
+
+# Terraform lock file
+.terraform.lock.hcl
+
+# Local Terraform plans
+plans/
+*.plan
+
+# Python cache and virtualenvs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env/
+.venv/
+env/
+venv/
+
+# Lambda deployment packages
+services/lambda-visitor-counter/*.zip
+
+# OS/Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Misc
+*.bak
+*.tmp
