@@ -47,6 +47,7 @@ module "dynamodb" {
   dynamodb_table_partition_key     = var.dynamodb_table_partition_key
   dynamodb_table_partition_value   = var.dynamodb_table_partition_value
   dynamodb_table_counter_attribute = var.dynamodb_table_counter_attribute
+  dynamodb_terraform_lock_table_name = var.dynamodb_terraform_lock_table_name
 }
 
 module "lambda" {
