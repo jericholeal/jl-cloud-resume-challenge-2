@@ -50,9 +50,7 @@ resource "aws_iam_role_policy" "github_oidc_backend_deploy_permissions" {
           "logs:*",
           "iam:PassRole"
         ],
-        "Resource" : [
-
-        ]
+        "Resource" : "*"
       }
     ]
   })
