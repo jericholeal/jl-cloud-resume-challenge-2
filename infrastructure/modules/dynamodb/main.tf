@@ -10,7 +10,7 @@ resource "aws_dynamodb_table" "jlcrc2_visitor_counter_table" {
   }
   attribute {
     name = var.dynamodb_table_counter_attribute
-    type = "S"
+    type = "N"
   }
   tags = {
     Project = var.project_name
