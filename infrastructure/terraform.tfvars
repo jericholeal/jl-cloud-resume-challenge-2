@@ -15,7 +15,7 @@ lambda_exec_role_name = "jlcrc2-lambda-exec-role"
 # DynamoDB
 dynamodb_table_name                = "jlcrc2-visitor-counter"
 dynamodb_table_partition_key       = "pk"
-dynamodb_table_partition_value     = "VISITOR_COUNTER"
+dynamodb_table_partition_value     = "visitorCounter"
 dynamodb_table_counter_attribute   = "visitCount"
 dynamodb_terraform_lock_table_name = "jlcrc2-terraform-lock"
 
