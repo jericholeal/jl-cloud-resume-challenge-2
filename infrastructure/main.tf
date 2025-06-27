@@ -5,13 +5,13 @@ resource "terraform_lock_table" "default" {
 
 module "acm" {
   source = "./modules/acm"
-  providers = {
-    aws = aws.us_east_1
-  }
-
+  
   jlcrc2_domain_name         = var.jlcrc2_domain_name
   jlcrc2_route53_zone_id     = module.route53.jlcrc2_route53_zone_id
   jlcrc2_cert_validation_arn = local.jlcrc2_cert_validation_arn
+  providers = {
+    aws = aws.us_east_1
+  }
 }
 
 module "apigateway" {

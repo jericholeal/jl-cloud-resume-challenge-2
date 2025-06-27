@@ -4,7 +4,7 @@
 resource "aws_acm_certificate" "jlcrc2_cert" {
   domain_name       = var.jlcrc2_domain_name
   validation_method = "DNS"
-  provider          = aws.us_east_1
+  provider          = aws
   tags = {
     Project = "jlcrc2"
   }
