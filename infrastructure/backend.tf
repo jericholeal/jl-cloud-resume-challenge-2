@@ -2,10 +2,10 @@
 
 terraform {
   backend "s3" {
-    bucket         = var.terraform_state_bucket_name
+    bucket         = "jlcrc2-terraform-state"
     key            = "global/s3/terraform.tfstate"
-    region         = var.aws_region
+    region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = var.dynamodb_terraform_lock_table_name
+    dynamodb_table = "jlcrc2-terraform-lock"
   }
 }
