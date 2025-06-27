@@ -6,6 +6,6 @@ terraform {
     key            = "global/s3/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = true
+    dynamodb_table = "jlcrc2-terraform-lock"
   }
 }
