@@ -8,10 +8,6 @@ resource "aws_dynamodb_table" "jlcrc2_visitor_counter_table" {
     name = var.dynamodb_table_partition_key
     type = "S"
   }
-  attribute {
-    name = var.dynamodb_table_counter_attribute
-    type = "N"
-  }
   tags = {
     Project = var.project_name
   }
