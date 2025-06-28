@@ -12,5 +12,5 @@ output "jlcrc2_distribution_domain_name" {
 
 output "jlcrc2_oac_id" {
   description = "The ID of the OAC for CloudFront access"
-  value = aws_cloudfront_origin_access_control.oac.id
+  value       = aws_cloudfront_origin_access_control.oac.id
 }

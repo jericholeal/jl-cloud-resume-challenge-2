@@ -7,8 +7,8 @@ locals {
   account_id = data.aws_caller_identity.current.account_id
 
   # ACM
-  jlcrc2_cert_id             = module.acm.acm_certificate_id
-  jlcrc2_cert_arn            = module.acm.acm_certificate_arn
+  jlcrc2_cert_id  = module.acm.acm_certificate_id
+  jlcrc2_cert_arn = module.acm.acm_certificate_arn
 
   # Lambda
   jlcrc2_visitor_counter_function_name = module.lambda.jlcrc2_visitor_counter_function_name

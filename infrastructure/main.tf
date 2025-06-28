@@ -1,8 +1,8 @@
 module "acm" {
   source = "./modules/acm"
 
-  jlcrc2_domain_name         = var.jlcrc2_domain_name
-  jlcrc2_route53_zone_id     = module.route53.jlcrc2_route53_zone_id
+  jlcrc2_domain_name     = var.jlcrc2_domain_name
+  jlcrc2_route53_zone_id = module.route53.jlcrc2_route53_zone_id
   providers = {
     aws = aws.us_east_1
   }
@@ -54,7 +54,8 @@ module "lambda" {
   jlcrc2_dynamodb_table_arn      = module.dynamodb.jlcrc2_visitor_counter_table_arn
   lambda_function_name           = var.lambda_function_name
   lambda_exec_role_name          = var.lambda_exec_role_name
-  lambda_s3_bucket               = var.lambda_s3_bucket_name
+  lambda_exec_policy_name        = var.lambda_exec_policy_name
+  lambda_s3_bucket_name          = var.lambda_s3_bucket_name
   lambda_s3_key                  = var.lambda_s3_key
   dynamodb_table_name            = var.dynamodb_table_name
   dynamodb_table_partition_key   = var.dynamodb_table_partition_key

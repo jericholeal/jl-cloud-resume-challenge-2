@@ -30,7 +30,7 @@ variable "lambda_exec_policy_name" {
   type        = string
 }
 
-variable "lambda_s3_bucket" {
+variable "lambda_s3_bucket_name" {
   description = "S3 bucket where the Lambda function code is stored"
   type        = string
 }
