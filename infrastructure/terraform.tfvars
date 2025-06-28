@@ -23,9 +23,6 @@ dynamodb_terraform_lock_table_name = "jlcrc2-terraform-lock"
 # Route53
 jlcrc2_domain_name = "jlcrc.cloud"
 
-# CloudFront
-jlcrc2_s3_origin_id = "jlcrc2-s3-origin"
-
 # CloudWatch
 lambda_log_retention_in_days = 14
 
