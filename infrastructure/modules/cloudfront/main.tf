@@ -17,6 +17,8 @@ resource "aws_cloudfront_distribution" "jlcrc2_distribution" {
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
   }
 
+  depends_on = [aws_acm_certificate_validation.jlcrc2_cert_validation]
+
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
