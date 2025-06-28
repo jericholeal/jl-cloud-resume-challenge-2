@@ -24,7 +24,7 @@ module "cloudfront" {
   acm_certificate_arn                = module.acm.acm_certificate_arn
   jlcrc2_frontend_bucket             = var.frontend_s3_bucket_name
   jlcrc2_frontend_bucket_domain_name = module.s3.jlcrc2_frontend_bucket_domain_name
-  frontend_logs_s3_bucket_name       = var.frontend_logs_s3_bucket_name
+  frontend_logs_s3_bucket_name       = var.logs_s3_bucket_name
 }
 
 module "cloudwatch" {
