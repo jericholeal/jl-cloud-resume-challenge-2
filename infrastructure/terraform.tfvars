@@ -8,7 +8,7 @@ frontend_logs_s3_bucket_name = "jlcrc2-logs"
 terraform_state_bucket_name  = "jlcrc2-terraform-state"
 
 # Lambda
-lambda_s3_key         = "jlcrc2-visitor-counter.zip"
+lambda_s3_key         = "jlcrc2_visitor_counter.zip"
 lambda_function_name  = "jlcrc2_visitor_counter"
 lambda_exec_role_name = "jlcrc2-lambda-exec-role"
 
