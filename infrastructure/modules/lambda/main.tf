@@ -51,7 +51,7 @@ resource "aws_iam_role_policy" "jlcrc2_lambda_policy" {
 # Lambda function resource
 resource "aws_lambda_function" "jlcrc2_visitor_counter_function" {
   function_name = var.lambda_function_name
-  s3_bucket     = var.lambda_s3_bucket
+  s3_bucket     = var.lambda_s3_bucket_name
   s3_key        = var.lambda_s3_key
   handler       = "${var.lambda_function_name}.lambda_handler"
   runtime       = "python3.9"
