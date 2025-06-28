@@ -14,6 +14,8 @@ resource "aws_route53_record" "jlcrc2_cdn_alias" {
   name    = var.jlcrc2_domain_name
   type    = "A"
 
+  depends_on = [aws_cloudfront_distribution.jlcrc2_distribution]
+
   alias {
     name                   = var.jlcrc2_distribution_domain_name
     zone_id                = aws_route53_zone.jlcrc2_route53_zone.zone_id
