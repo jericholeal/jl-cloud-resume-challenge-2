@@ -34,7 +34,7 @@ variable "frontend_s3_bucket_name" {
   type        = string
 }
 
-variable "frontend_logs_s3_bucket_name" {
+variable "logs_s3_bucket_name" {
   description = "S3 bucket name for frontend logs"
   type        = string
 }

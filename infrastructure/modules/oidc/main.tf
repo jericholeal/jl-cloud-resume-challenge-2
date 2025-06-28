@@ -96,7 +96,7 @@ resource "aws_iam_role_policy" "github_oidc_frontend_deploy_permissions" {
         ],
         "Resource" : [
           "arn:aws:s3:::${var.frontend_s3_bucket_name}/*",
-          "arn:aws:s3:::${var.frontend_logs_s3_bucket_name}/*"
+          "arn:aws:s3:::${var.logs_s3_bucket_name}/*"
         ]
       },
       {

@@ -78,7 +78,7 @@ module "s3" {
   account_id                   = local.account_id
   frontend_s3_bucket_name      = var.frontend_s3_bucket_name
   lambda_s3_bucket_name        = var.lambda_s3_bucket_name
-  frontend_logs_s3_bucket_name = var.frontend_logs_s3_bucket_name
+  logs_s3_bucket_name          = var.logs_s3_bucket_name
   terraform_state_bucket_name  = var.terraform_state_bucket_name
   jlcrc2_lambda_exec_role_arn  = local.jlcrc2_lambda_exec_role_arn
   jlcrc2_oac_id                = module.cloudfront.jlcrc2_oac_id
@@ -94,5 +94,5 @@ module "oidc" {
   project_name                          = var.project_name
   account_id                            = local.account_id
   frontend_s3_bucket_name               = var.frontend_s3_bucket_name
-  frontend_logs_s3_bucket_name          = var.frontend_logs_s3_bucket_name
+  logs_s3_bucket_name                   = var.logs_s3_bucket_name
 }

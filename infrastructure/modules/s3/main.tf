@@ -54,7 +54,7 @@ resource "aws_s3_bucket_versioning" "jlcrc2_frontend_bucket_versioning" {
 # jlcrc2-frontend-logs S3 bucket configuration
 
 resource "aws_s3_bucket" "jlcrc2_logs_bucket" {
-  bucket = var.frontend_logs_s3_bucket_name
+  bucket = var.logs_s3_bucket_name
   lifecycle {
     prevent_destroy = true
   }
@@ -81,7 +81,7 @@ resource "aws_s3_bucket_policy" "jlcrc2_frontend_logs_policy" {
         Service = "delivery.logs.amazonaws.com"
       },
       Action   = "s3:PutObject",
-      Resource = "arn:aws:s3:::${var.frontend_logs_s3_bucket_name}/*",
+      Resource = "arn:aws:s3:::${var.logs_s3_bucket_name}/*",
       Condition = {
         StringEquals = {
           "AWS:SourceAccount" = "${var.account_id}"
