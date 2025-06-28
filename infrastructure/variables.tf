@@ -54,6 +54,11 @@ variable "lambda_exec_role_name" {
   type        = string
 }
 
+variable "lambda_exec_policy_name" {
+  description = "Name of the Lambda execution policy"
+  type        = string
+}
+
 # DynamoDB
 
 variable "dynamodb_table_name" {

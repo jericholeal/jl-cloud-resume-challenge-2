@@ -25,6 +25,11 @@ variable "lambda_exec_role_name" {
   type        = string
 }
 
+variable "lambda_exec_policy_name" {
+  description = "Name of the Lambda execution policy"
+  type        = string
+}
+
 variable "lambda_s3_bucket" {
   description = "S3 bucket where the Lambda function code is stored"
   type        = string

@@ -19,7 +19,7 @@ resource "aws_iam_role" "jlcrc2_lambda_exec" {
 
 # IAM Policy for Lambda execution role
 resource "aws_iam_role_policy" "jlcrc2_lambda_policy" {
-  name = "crc_visitor_counter_exec_policy"
+  name = var.lambda_exec_policy_name
   role = aws_iam_role.jlcrc2_lambda_exec.id
 
   # Policy for Lambda execution role
