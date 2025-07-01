@@ -23,9 +23,9 @@ resource "aws_route53_record" "jlcrc2_cdn_alias" {
 
 # www subdomain alias record redirecting to root domain
 resource "aws_route53_record" "jlcrc_zone_www_alias" {
-  zone_id    = aws_route53_zone.jlcrc2_route53_zone.zone_id
-  name       = "www.${var.jlcrc2_domain_name}"
-  type       = "CNAME"
-  ttl        = 300
-  records    = [var.jlcrc2_domain_name]
+  zone_id = aws_route53_zone.jlcrc2_route53_zone.zone_id
+  name    = "www.${var.jlcrc2_domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = [var.jlcrc2_domain_name]
 }

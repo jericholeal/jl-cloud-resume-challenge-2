@@ -59,10 +59,10 @@ resource "aws_api_gateway_method" "increment_options" {
 
 # Integrate OPTIONS method with Lambda function
 resource "aws_api_gateway_integration" "increment_options_lambda" {
-  rest_api_id             = aws_api_gateway_rest_api.jlcrc2_api.id
-  resource_id             = aws_api_gateway_resource.increment.id
-  http_method             = aws_api_gateway_method.increment_options.http_method
-  type                    = "MOCK"
+  rest_api_id = aws_api_gateway_rest_api.jlcrc2_api.id
+  resource_id = aws_api_gateway_resource.increment.id
+  http_method = aws_api_gateway_method.increment_options.http_method
+  type        = "MOCK"
 
   request_templates = {
     "application/json" = jsonencode({
@@ -102,7 +102,7 @@ resource "aws_api_gateway_integration_response" "options_200" {
   depends_on = [
     aws_api_gateway_integration.increment_options_lambda,
     aws_api_gateway_method_response.options_200
-    ]
+  ]
 
 }
 
