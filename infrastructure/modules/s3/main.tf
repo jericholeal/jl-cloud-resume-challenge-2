@@ -70,6 +70,20 @@ resource "aws_s3_bucket_versioning" "jlcrc2_frontend_logs_versioning" {
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "jlcrc2_logs_bucket_ownership" {
+  bucket = aws_s3_bucket.jlcrc2_logs_bucket.id
+
+  rule {
+    object_ownership = "ObjectWriter"
+  }
+}
+resource "aws_s3_bucket_public_access_block" "jlcrc2_logs_bucket_block" {
+  bucket = aws_s3_bucket.jlcrc2_logs_bucket.id
+  block_public_acls = false
+  ignore_public_acls = false
+  block_public_policy = true
+  restrict_public_buckets = true
+}
 resource "aws_s3_bucket_policy" "jlcrc2_logs_policy" {
   bucket = aws_s3_bucket.jlcrc2_logs_bucket.id
 
@@ -93,6 +107,8 @@ resource "aws_s3_bucket_policy" "jlcrc2_logs_policy" {
     }]
   })
 }
+
+
 
 # jlcrc2-lambda S3 bucket configuration
 
