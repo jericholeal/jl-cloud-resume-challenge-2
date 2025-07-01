@@ -30,5 +30,4 @@ resource "aws_route53_record" "jlcrc_zone_www_alias" {
   type       = "CNAME"
   ttl        = 300
   records    = [var.jlcrc2_domain_name]
-  depends_on = [aws_cloudfront_distribution.jlcrc2_distribution]
 }
