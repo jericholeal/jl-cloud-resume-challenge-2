@@ -1,7 +1,7 @@
 // Visitor counter updater
 
 // API endpoint to fetch visitor count
-const apiEndpoint = "" // Replace with API Gateway endpoint URL
+const apiEndpoint = "https://mf48ygd5sh.execute-api.us-east-1.amazonaws.com/prod" // Replace with API Gateway endpoint URL
 
 // Function to call Lambda function through API Gateway
 async function updateVisitorCount() {
