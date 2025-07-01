@@ -1,5 +1,6 @@
 aws_region  = "us-east-1"
 aws_profile = "cr-challenge2"
+project_name = "jlcrc2"
 
 # S3
 frontend_s3_bucket_name      = "jlcrc2-frontend"
