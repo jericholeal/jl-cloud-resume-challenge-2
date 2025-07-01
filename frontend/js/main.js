@@ -25,7 +25,7 @@ async function updateVisitorCount() {
     document.getElementById("visitor-count").innerText = count;
     } catch (error) {
         // In case of error, show message and log
-        console.error("Error fetching visitor count:", error);
+        console.error("Error fetching visitor count", error);
         document.getElementById("visitor-count").innerText="Error fetching count";   
   }
 }
