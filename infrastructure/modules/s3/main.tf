@@ -70,7 +70,7 @@ resource "aws_s3_bucket_versioning" "jlcrc2_frontend_logs_versioning" {
   }
 }
 
-resource "aws_s3_bucket_policy" "jlcrc2_frontend_logs_policy" {
+resource "aws_s3_bucket_policy" "jlcrc2_logs_policy" {
   bucket = aws_s3_bucket.jlcrc2_logs_bucket.id
 
   policy = jsonencode({
@@ -81,10 +81,13 @@ resource "aws_s3_bucket_policy" "jlcrc2_frontend_logs_policy" {
         Service = "delivery.logs.amazonaws.com"
       },
       Action   = "s3:PutObject",
-      Resource = "arn:aws:s3:::${var.logs_s3_bucket_name}/*",
+      Resource = "${aws_s3_bucket.jlcrc2_logs_bucket.arn}/*",
       Condition = {
         StringEquals = {
           "AWS:SourceAccount" = "${var.account_id}"
+        },
+        ArnLike = {
+          "aws:SourceArn" = "arn:aws:cloudfront::${var.account_id}:distribution/*"
         }
       }
     }]
