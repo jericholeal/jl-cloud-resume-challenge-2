@@ -51,7 +51,7 @@ resource "aws_s3_bucket_versioning" "jlcrc2_frontend_bucket_versioning" {
   }
 }
 
-# jlcrc2-frontend-logs S3 bucket configuration
+# jlcrc2-logs S3 bucket configuration
 
 resource "aws_s3_bucket" "jlcrc2_logs_bucket" {
   bucket = var.logs_s3_bucket_name

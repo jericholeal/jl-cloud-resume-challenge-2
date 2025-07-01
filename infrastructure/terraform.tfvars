@@ -4,7 +4,7 @@ aws_profile = "cr-challenge2"
 # S3
 frontend_s3_bucket_name      = "jlcrc2-frontend"
 lambda_s3_bucket_name        = "jlcrc2-lambda"
-logs_s3_bucket_name = "jlcrc2-logs"
+logs_s3_bucket_name          = "jlcrc2-logs"
 terraform_state_bucket_name  = "jlcrc2-terraform-state"
 
 # Lambda
