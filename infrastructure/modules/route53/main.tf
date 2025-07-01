@@ -16,7 +16,7 @@ resource "aws_route53_record" "jlcrc2_cdn_alias" {
 
   alias {
     name                   = var.jlcrc2_distribution_domain_name
-    zone_id                = aws_route53_zone.jlcrc2_route53_zone.zone_id
+    zone_id                = "Z2FDTNDATAQYW2"
     evaluate_target_health = false
   }
 }
