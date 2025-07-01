@@ -15,6 +15,8 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      TF_IN_AUTOMATION: true
       
     steps:
       - name: Checkout
@@ -27,25 +29,29 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: Lambda code zip and upload
+        working-directory: services/lambda-visitor-counter
         run: |
-          cd services/lambda-visitor-counter
           zip -r lambda_visitor_counter.zip .
           aws s3 cp lambda_visitor_counter.zip s3://${{ vars.LAMBDA_BUCKET_NAME }}/lambda_visitor_counter.zip
       
       - name: Terraform init
+        working-directory: infrastructure
         run: |
-          cd infrastructure
           terraform fmt -recursive
-          terraform init
+          terraform init -reconfigure
 
       - name: Terraform plan
+        working-directory: infrastructure
         run: |
-          cd infrastructure
-          terraform plan
+          terraform plan -out=tfplan
+
+      - name: Upload Terraform plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-plan
+          path: tfplan
 
       - name: Terraform apply
-        run: |
-          cd infrastructure
-          terraform apply -auto-approve
-
-
+        working-directory: infrastructure
+        run: |          
+          terraform apply -auto-approve tfplan
