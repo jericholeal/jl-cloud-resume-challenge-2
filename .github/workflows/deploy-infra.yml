@@ -36,8 +36,7 @@ jobs:
       
       - name: Terraform init
         working-directory: infrastructure
-        run: |
-          terraform fmt -recursive
+        run: |          
           terraform init -reconfigure
 
       - name: Terraform plan
