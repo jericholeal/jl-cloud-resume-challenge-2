@@ -64,14 +64,14 @@ resource "aws_s3_bucket" "jlcrc2_logs_bucket" {
   }
 }
 resource "aws_s3_bucket_versioning" "jlcrc2_frontend_logs_versioning" {
-  bucket = aws_s3_bucket.jlcrc2_frontend_logs_bucket.id
+  bucket = aws_s3_bucket.jlcrc2_logs_bucket.id
   versioning_configuration {
     status = "Enabled"
   }
 }
 
 resource "aws_s3_bucket_policy" "jlcrc2_frontend_logs_policy" {
-  bucket = aws_s3_bucket.jlcrc2_frontend_logs_bucket.id
+  bucket = aws_s3_bucket.jlcrc2_logs_bucket.id
 
   policy = jsonencode({
     Version = "2012-10-17",

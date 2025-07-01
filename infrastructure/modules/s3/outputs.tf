@@ -26,13 +26,13 @@ output "jlcrc2_lambda_bucket_id" {
 }
 
 output "jlcrc2_frontend_logs_bucket_arn" {
-  description = "The ARN of jlcrc2_frontend_logs_bucket"
-  value       = aws_s3_bucket.jlcrc2_frontend_logs_bucket.arn
+  description = "The ARN of jlcrc2_logs_bucket"
+  value       = aws_s3_bucket.jlcrc2_logs_bucket.arn
 }
 
 output "jlcrc2_frontend_logs_bucket_id" {
-  description = "The ID of jlcrc2_frontend_logs_bucket"
-  value       = aws_s3_bucket.jlcrc2_frontend_logs_bucket.id
+  description = "The ID of jlcrc2_logs_bucket"
+  value       = aws_s3_bucket.jlcrc2_logs_bucket.id
 }
 
 output "jlcrc2_terraform_state_bucket_arn" {
