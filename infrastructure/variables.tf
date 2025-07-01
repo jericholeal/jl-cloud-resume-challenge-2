@@ -93,13 +93,6 @@ variable "jlcrc2_domain_name" {
   type        = string
 }
 
-# CloudFront
-
-variable "jlcrc2_s3_origin_id" {
-  description = "The origin ID for the S3 bucket in CloudFront"
-  type        = string
-}
-
 # CloudWatch
 
 variable "lambda_log_retention_in_days" {
