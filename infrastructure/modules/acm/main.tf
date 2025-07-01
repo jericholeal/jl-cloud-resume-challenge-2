@@ -3,6 +3,7 @@
 # Request a public certificate for the domain from ACM in us-east-1
 resource "aws_acm_certificate" "jlcrc2_cert" {
   domain_name       = var.jlcrc2_domain_name
+  subject_alternative_names = ["www.${var.jlcrc2_domain_name}"]
   validation_method = "DNS"
   provider          = aws
   tags = {
