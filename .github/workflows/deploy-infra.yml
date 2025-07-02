@@ -6,8 +6,6 @@ on:
       - main
     paths:
       - 'infrastructure/**'
-      - 'services/**'
-      - '.github/workflows/**'
   workflow_dispatch:
 permissions:
   id-token: write
@@ -25,16 +23,11 @@ jobs:
       
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
+
         with:
           role-to-assume: ${{ vars.OIDC_ROLE_BACKEND_DEPLOY_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
-      - name: Lambda code zip and upload
-        working-directory: services/lambda-visitor-counter
-        run: |
-          zip -r lambda_visitor_counter.zip .
-          aws s3 cp lambda_visitor_counter.zip s3://${{ vars.LAMBDA_BUCKET_NAME }}/lambda_visitor_counter.zip
-      
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
