@@ -32,6 +32,7 @@ async function updateVisitorCount() {
 
     // Mark session as already counted
     sessionStorage.setItem("visitorCounted", "true")
+    sessionStorage.setItem("lastVisitorCount", count)
 
     } catch (error) {
         // In case of error, show message and log
