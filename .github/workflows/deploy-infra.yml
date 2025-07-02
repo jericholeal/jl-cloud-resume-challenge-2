@@ -7,6 +7,7 @@ on:
     paths:
       - 'infrastructure/**'
       - 'services/**'
+  workflow_dispatch:
 
 permissions:
   id-token: write
