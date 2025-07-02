@@ -28,7 +28,7 @@ resource "aws_s3_bucket_policy" "jlcrc2_frontend_policy" {
         "Resource" : "arn:aws:s3:::${var.frontend_s3_bucket_name}/*",
         "Condition" : {
           "StringEquals" : {
-            "AWS:SourceArn" : "arn:aws:cloudfront::${var.account_id}:origin-access-control/${var.jlcrc2_oac_id}"
+            "AWS:SourceArn" : "arn:aws:cloudfront::${var.account_id}:distribution/${var.jlcrc2_distribution_id}"
           }
         }
       }

@@ -82,6 +82,7 @@ module "s3" {
   terraform_state_bucket_name = var.terraform_state_bucket_name
   jlcrc2_lambda_exec_role_arn = local.jlcrc2_lambda_exec_role_arn
   jlcrc2_oac_id               = module.cloudfront.jlcrc2_oac_id
+  jlcrc2_distribution_id      = local.jlcrc2_distribution_id
 }
 
 module "oidc" {

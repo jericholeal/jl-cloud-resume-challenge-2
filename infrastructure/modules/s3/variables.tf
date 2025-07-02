@@ -39,3 +39,8 @@ variable "jlcrc2_oac_id" {
   description = "ID of the OAC for CloudFront access"
   type        = string
 }
+
+variable "jlcrc2_distribution_id" {
+  description = "ID of CloudFront distribution"
+  type        = string
+}
