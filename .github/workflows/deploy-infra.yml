@@ -34,9 +34,15 @@ jobs:
           zip -r lambda_visitor_counter.zip .
           aws s3 cp lambda_visitor_counter.zip s3://${{ vars.LAMBDA_BUCKET_NAME }}/lambda_visitor_counter.zip
       
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.12.2
+      
       - name: Terraform init
         working-directory: infrastructure
         run: |          
+          terraform fmt -recursive
           terraform init -reconfigure
 
       - name: Terraform plan
