@@ -7,8 +7,8 @@ on:
     paths:
       - 'infrastructure/**'
       - 'services/**'
+      - '.github/workflows/**'
   workflow_dispatch:
-
 permissions:
   id-token: write
   contents: read
