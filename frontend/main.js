@@ -9,6 +9,15 @@ async function updateVisitorCount() {
     
     // Check if visitor has already been counted this session
     if (sessionStorage.getItem("visitorCounted")) {
+      
+      // Check if there's a stored count, display it if there is
+      const storedCount = sessionStorage.getItem("lastVisitorCount");            
+      if (storedCount !== null) {
+        document.getElementById("visitor-count").innerText = storedCount;
+      } else {
+        document.getElementById("visitor-count").innerText = "Welcome back!";
+      }     
+      
       console.log("Visitor already counted in this session.")
       return; // Exit early
     }
@@ -43,5 +52,3 @@ async function updateVisitorCount() {
 
 // Call the function to fetch visitor count when the page loads
 updateVisitorCount()
-
-// trigger workflow
