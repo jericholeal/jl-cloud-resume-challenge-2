@@ -1,0 +1,32 @@
+name: Upload Lambda Zip
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'services/lambda-visitor-counter/**'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.OIDC_ROLE_BACKEND_DEPLOY_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+      
+      - name: Zip and upload Lambda code
+        working-directory: services/lambda-visitor-counter
+        run: |
+          zip -r lambda_visitor_counter.zip .
+          aws s3 cp lambda_visitor_counter.zip s3://${{ vars.LAMBDA_BUCKET_NAME }}/lambda_visitor_counter.zip
