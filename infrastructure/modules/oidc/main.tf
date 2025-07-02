@@ -49,7 +49,11 @@ resource "aws_iam_role_policy" "github_oidc_backend_deploy_permissions" {
           "acm:*",
           "logs:*",
           "iam:PassRole",
-          "iam:GetRole"
+          "iam:GetRole",
+          "iam:GetOpenIDConnectProvider",
+          "iam:ListRolePolicies",
+          "iam:GetRolePolicy",
+          "iam:ListAttachedRolePolicies",
         ],
         "Resource" : "*"
       }
@@ -88,9 +92,10 @@ resource "aws_iam_role_policy" "github_oidc_frontend_deploy_permissions" {
     "Statement" : [
       {
         "Sid": "AllowListBucket",
+        "Effect": "Allow",
         "Action": [
-          "s3:ListBucket"
-        ]
+          "s3:ListBucket",
+        ],
         "Resource": [
           "arn:aws:s3:::jlcrc2-frontend",
           "arn:aws:s3:::jlcrc2-logs"
@@ -102,7 +107,7 @@ resource "aws_iam_role_policy" "github_oidc_frontend_deploy_permissions" {
           "s3:PutObject",
           "s3:GetObject",
           "s3:DeleteObject",          
-          "s3:PutObjectAcl",
+          "s3:PutObjectAcl"
         ],
         "Resource" : [
           "arn:aws:s3:::${var.frontend_s3_bucket_name}/*",
@@ -112,7 +117,7 @@ resource "aws_iam_role_policy" "github_oidc_frontend_deploy_permissions" {
       {
         "Effect" : "Allow",
         "Action" : [
-          "cloudfront:CreateInvalidation",
+          "cloudfront:CreateInvalidation"
         ],
         "Resource" : "*"
       }
