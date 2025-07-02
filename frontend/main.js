@@ -32,3 +32,5 @@ async function updateVisitorCount() {
 
 // Call the function to fetch visitor count when the page loads
 updateVisitorCount()
+
+// trigger workflow
