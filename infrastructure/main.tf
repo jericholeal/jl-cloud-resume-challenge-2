@@ -69,6 +69,8 @@ module "route53" {
   project_name                    = var.project_name
   jlcrc2_domain_name              = var.jlcrc2_domain_name
   jlcrc2_distribution_domain_name = local.jlcrc2_distribution_domain_name
+  jlcrc2_dnssec_ksk_name          = var.jlcrc2_dnssec_ksk_name
+  jlcrc2_kms_key_arn              = module.kms.jlcrc2_kms_key_arn
 }
 
 module "s3" {
@@ -96,4 +98,12 @@ module "oidc" {
   account_id                            = local.account_id
   frontend_s3_bucket_name               = var.frontend_s3_bucket_name
   logs_s3_bucket_name                   = var.logs_s3_bucket_name
+}
+
+module "kms" {
+  source = "./modules/kms"
+
+  jlcrc2_domain_name      = var.jlcrc2_domain_name
+  kms_key_admin_arns       = local.jlcrc2_github_oidc_backend_deploy_role_arns
+  deletion_window_in_days = var.deletion_window_in_days
 }

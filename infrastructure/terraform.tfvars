@@ -32,3 +32,7 @@ github_oidc_backend_deploy_role_name  = "github-crc2-backend-deploy"
 github_oidc_frontend_deploy_role_name = "github-crc2-frontend-deploy"
 github_username                       = "jericholeal"
 github_repo_name                      = "jl-cloud-resume-challenge-2"
+
+# KMS
+deletion_window_in_days = "30"
+jlcrc2_dnssec_ksk_name = "jlcrc-dnssec-ksk"

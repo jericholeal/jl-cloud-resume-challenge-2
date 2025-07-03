@@ -14,3 +14,13 @@ variable "jlcrc2_distribution_domain_name" {
   description = "The domain name of the CloudFront distribution"
   type        = string
 }
+
+variable "jlcrc2_dnssec_ksk_name" {
+  description = "Name of jlcrc2 DNSSEC key signing key"
+  type        = string
+}
+
+variable "jlcrc2_kms_key_arn" {
+  description = "ARM of the jlcrc2 KMS key"
+  type        = string
+}

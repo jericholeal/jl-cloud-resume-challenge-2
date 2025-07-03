@@ -121,3 +121,15 @@ variable "github_repo_name" {
   description = "GitHub repository name for OIDC role"
   type        = string
 }
+
+# KMS
+
+variable "deletion_window_in_days" {
+  description = "KMS key deletion window in days"
+  type        = string  
+}
+
+variable "jlcrc2_dnssec_ksk_name" {
+  description = "Name of jlcrc2 DNSSEC key signing key"
+  type        = string
+}

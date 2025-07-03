@@ -29,3 +29,9 @@ resource "aws_route53_record" "jlcrc_zone_www_alias" {
   ttl     = 300
   records = [var.jlcrc2_domain_name]
 }
+
+resource "aws_route53_key_signing_key" "jlcrc2_domain_ksk" {
+  hosted_zone_id = aws_route53_zone.jlcrc2_route53_zone.zone_id
+  key_management_service_arn = var.jlcrc2_kms_key_arn
+  name = var.jlcrc2_dnssec_ksk_name
+}

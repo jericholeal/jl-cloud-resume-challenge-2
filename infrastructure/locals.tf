@@ -5,6 +5,7 @@ data "aws_caller_identity" "current" {}
 locals {
 
   account_id = data.aws_caller_identity.current.account_id
+  sso_assumed_role_arn = "arn:aws:sts::${data.aws_caller_identity.current.account_id}:assumed-role/AWSReservedSSO_AllowCRCCoreServices_beb1740290e7c6d7/cr-challenge"
 
   # ACM
   jlcrc2_cert_id  = module.acm.acm_certificate_id
@@ -36,5 +37,11 @@ locals {
   # CloudWatch
   lambda_log_group_arn = module.cloudwatch.lambda_log_group_arn
   lambda_log_group_id  = module.cloudwatch.lambda_log_group_id
+
+  # OIDC
+  jlcrc2_github_oidc_backend_deploy_role_arns = [
+    local.sso_assumed_role_arn,
+    module.oidc.jlcrc2_github_oidc_backend_deploy_role_arn
+  ]
 }
 

@@ -54,6 +54,11 @@ resource "aws_iam_role_policy" "github_oidc_backend_deploy_permissions" {
           "iam:ListRolePolicies",
           "iam:GetRolePolicy",
           "iam:ListAttachedRolePolicies",
+          "kms:DescribeKey",
+          "kms:CreateKey",
+          "kms:ListKeys",
+          "kms:GetKeyPolicy",
+          "kms:PutKeyPolicy"
         ],
         "Resource" : "*"
       }
