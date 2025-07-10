@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jericho Portfolio Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,95,100..900;1,95,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cloudresumechallenge.html">Cloud Resume Challenge</li>
+          <li><a href="projects.html">Projects</a></li>   
+        </ul>
+      </nav>
+    </header>
+
+    <section class="cloudresumechallenge-section">
+      <h1>My Cloud Resume Challenge Attempt(s)</h1>
+
+      <p>Below are details of my Cloud Resume Challenge attempts and my learning experience along with it.</p>
+      
+      <h2>Cloud Resume Challenge: Second Take (You're looking at it)</h2>
+      <br>
+      <p>
+        Live site: <a href="https://jlcrc.cloud">jlcrc.cloud</a><br>
+        GitHub repository: 
+      </p>
+
+      <h4>Frontend & Hosting</h4>
+      <p>
+        <ul>
+          <li>Built & deployed a multi-page static website (HTML, CSS, JS) hosted on Amazon S3</li>
+          <li>Served content via a CloudFront distribution using Origin Access Control (OAC) with public access blocks</li>
+          <li>Implemented session-based visitor counter display on the index page (sessionStorage to limit one increment per session)</li>
+        </ul>
+      </p>
+
+      <h4>Infrastructure as Code (Terraform)</h4>
+      <p>
+        <ul>
+          <li>Designed fully modular Terraform configurations with separate modules for each AWS service (ACM, API Gateway, CloudFront, DynamoDB, IAM, Lambda, Route53, S3)</li>
+          <li>Managed variables using variables.tf, terraform.tfvars, and locals.tf for consistency, reusability, and neatness</li>
+          <li>Created secure Terraform remote backend (in S3) with state locking (DynamoDB)</li>
+          <li>Manually bootstrapped core resources (S3, DynamoDB, OIDC roles), then imported and managed them with Terraform</li>
+          <li>Practiced best practices: least-privilege IAM roles, tagging, modular architecture</li>
+        </ul>
+      </p>
+
+      <h4>Serverless Backend</h4>
+      <p>
+        <ul>
+          <li>Used a python-based AWS Lambda function to increment a count stored in a DynamoDB table on website visits</li>
+          <li>Integrated Lambda function with API Gateway (HTTP API) triggered via frontend JavaScript fetch calls</li>
+          <li>Used DynamoDB (NoSQL) for persistent storage of visit counts</li>
+        </ul>
+      </p>
+      
+      <h4>CI/CD with GitHub Actions & OIDC</h4>
+      <p>
+        <ul>
+          <li>Implemented CI/CD pipelines using GitHub Actions with OpenID Connect (OIDC) to assume IAM roles (for frontend and backend deployment)</li>
+          <li>Created separate workflows for:
+            <ul>
+              <li>Frontend deployment (S3 + CloudFront invalidation)</li>
+              <li>Backend deployment (Terraform automation)</li>
+              <li>Lambda ZIP packaging and upload (S3)</li>
+            </ul>
+          </li>
+          <li>Practiced least-privilege access control in IAM roles used by GitHub workflows</li>
+        </ul>
+      </p>
+
+      <h4>Security & DNS</h4>
+      <p>
+        <ul>
+          <li>Used ACM (AWS Certificate Manager) to issue SSL/TLS certificates for HTTPS traffic</li>
+          <li>Managed domain DNS via Route53 hosted zone with custom domain (jlcrc.cloud)</li>
+          <li>Enabled DNSSEC (DNS Security Extensions) with Route53:
+            <ul>
+              <li>Created a KMS key for signing</li>
+              <li>Attached a key-signing key (KSK) to the hosted zone</li>
+              <li>Published DS record to parent domain via registrar (NameCheap)</li>
+            </ul>
+          </li>
+        </ul>
+      </p>
+
+      <h4>Access Management & AWS Account Structure</h4>
+      <p>
+        <ul>
+          <li>Logged in via AWS IAM Identity Center (SSO) for CLI access and permission control</li>
+          <li>Used AWS Organizations with an Organizational Unit (OU) and account for project isolation</li>
+          <li>Assigned scoped roles and policies for project-specific operations</li>
+        </ul>
+      </p>
+
+      <h4>Planned Enhancements</h4>
+      <p>
+        <ul>
+          <li>Monitoring & Alerting
+            <ul>
+              <li>Use Amazon CloudWatch alarms (with SNS topics) to track key metrics (Lambda invocations, API Gateway errors, etc.) and to detect anomalous behaviour</li>
+            </ul>
+          </li>
+          <li>Incident Response Automation
+            <ul>
+              <li>Connect CloudWatch alarms to external services like Slack and PagerDuty to receive real-time notifications and alerts for issues and failures</li>
+            </ul>
+          </li>
+          <li>Security & Policy Validation
+            <ul>
+              <li>Use IAM Access Analyzer and IAM Policy Validator tools to tighten IAM roles and policies and narrow down overly broad permissions (Current OIDC role policies are too broad)</li>
+            </ul>
+          </li>
+          <li>CI/CD Security Gates
+            <ul>
+              <li>Integrate IAM policy validation into GitHub Actions workflows to catch insecure configurations to prevent bad policies from being deployed</li>
+            </ul>
+          </li>
+        </ul>
+      </p>
+
+      <br>
+      <h2>Cloud Resume Challenge: First Take</h2>
+      <br>
+      <p>
+        Live site: <a href="https://jericho-crc-site.xyz/">jericho-crc-site.xyz</a> (password: jkocloudman)<br>
+        GitHub repository:
+      </p>
+ 
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Jericho. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
