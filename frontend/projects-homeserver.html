@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jericho Portfolio Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,95,100..900;1,95,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cloudresumechallenge.html">Cloud Resume Challenge</a></li>     
+          <li><a href="projects.html">Projects</a></li>          
+        </ul>
+      </nav>
+    </header>
+    
+    <section class="homeserver-section">
+      <h1>Home Linux Fileserver</h1>
+
+      <p><b>Home file server (Debian) for storage and backups</b></p>
+      
+      <p>
+        Built a PC entirely from really old and discarded legacy hardware and used it as a personal home file server for storage, backups, and as a lab environment.
+      </p>
+
+      <p>
+      <h4>PC Specs (Super high tech):</h4>
+        <ul>
+          <li>CPU: AMD Phenom II X6 1045T (6-core)</li>
+          <li>Motherboard: Asus M5A78L-M LX PLUS</li>
+          <li>RAM: 8GB DDR3, 1333 MHz (2x 4GB)</li>
+          <li>SDD: 120GB Lexar SSD, 240GB ADATA SU630</li>
+          <li>HDD: 500GB Hitachi HDP72505, 1TB Hitachi HDS72101</li>
+        </ul>
+      </p>
+      
+      <p>
+      <h4>Partitioning</h4>
+        <ul>
+          <li>SSD1 (120GB): /boot, swap, /</li>
+          <li>SSD2 (240GB): /home</li>
+          <li>HDD1 (500GB): /mnt/storage1</li>
+          <li>HDD2 (1TB): /mnt/storage2</li>
+        </ul>
+      </p>
+
+      <p>
+      <h4>Networking, Security:</h4>
+        <ul>
+          <li>nftables rules: default drop, allow-by-policy, allow SSH from personal computer IP address only</li>
+          <li>Disable remote root login</li>
+          <li>Disable password authentication (key only)</li>
+        </ul>
+      </p>
+
+      <p>
+        <h4>File Sharing</h4>
+        <ul>
+          <li>Automount on personal computer (Pop_OS! Linux) using systemd user .service unit and sshfs mount script</li>
+          <li>Samba access (mnt/storage1/smbshare) for Windows 10 access & file storage</li>
+        </ul>
+      </p>
+
+      <i><a href="projects.html">Back to Projects page</a></i>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Jericho. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

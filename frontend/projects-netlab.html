@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jericho Portfolio Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,95,100..900;1,95,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cloudresumechallenge.html">Cloud Resume Challenge</a></li>     
+          <li><a href="projects.html">Projects</a></li>          
+        </ul>
+      </nav>
+    </header>
+    
+    <section class="netlab-section">
+      <h1>Virtual Network Lab</h1>
+
+      <p>
+        A virtualized network environment built for testing, learning, and automation, secured with nftables, segmented via a LAN bridge, including automated file backups. Powered by QEMU/KVM and managed through a dedicated Debian admin workstation VM.
+      </p>
+      
+      <p>
+        <b>Overview</b><br>
+        This HomeLab simulates an internal network with routing, file sharing, firewalls, and client/server interactions. All virtual machines are hosted on a Linux machine using QEMU/KVM and connected through a bridged virtual LAN. It’s built for practical experience with Linux system administration, networking, and infrastructure automation.
+      </p>
+
+      <p>
+        <h4>Architecture</h4>
+        <ul>
+          <li><b>Virtualization:</b> QEMU/KVM (Pop_OS! Linux host)</li>
+          <li><b>Bridge Interface:</b> br0 for internal LAN</li>
+          <li><b>Firewall:</b> nftables (default drop, allow-by-policy)</li>
+          <li><b>DHCP/DNS:</b> dnsmasq (router01 VM)</li>
+          <li><b>Automation:</b> anacron</li>
+          <li><b>Backups:</b> Daily file backups</li>
+        </ul>
+      </p>
+
+      <p>
+        <h4>VM Inventory</h4>
+        <ul>
+          <li><b>router01:</b> Gateway, DHCP/DNS; Debian (no GUI)<br></li>
+          <li><b>fileserver01:</b> NFS/SMB host, file sharing; Ubuntu Server (Minimized)<br></li>
+          <li><b>monitor01:</b> Monitoring, Prometheus & Grafana; Ubuntu Server (Minimized)<br></li>
+          <li><b>admin01:</b> Central Workstation; Debian, XFCE<br></li>
+          <li><b>linuxclient01:</b> Linux Client; AlmaLinux (Minimal)<br></li>
+          <li><b>windowsclient01:</b> Windows Client; Windows 10<br></li>
+        </ul>
+      </p>
+
+      <p>
+        <h4>General Rules (nftables)</h4>
+        <ul>
+          <li>All chains use default drop</li>
+          <li>SSH to all VMs from admin01</li>
+          <li>Traffic allowed only as needed by role:</li>
+          <ul>
+            <li><b>router01:</b> DNS, DHCP, SSH (port 2222), LAN-WAN forwarding, NAT masquerade</li>
+          </ul>
+          <ul>
+            <li>fileserver01:</li>
+            <ul>
+              <li>Samba: TCP 139/445, UDP 137/138</li>
+              <li>NFS: TCP/UDP 111, 2049, 32765-32767</li>
+              <li>Ping: ICMP echo request from LAN</li>
+            </ul>
+          </ul>
+        </ul>
+      </p>
+
+      <p>
+        <h4>Networking</h4>
+        <ul>
+        <li><b>Subnet:</b> 192.168.100.0/24</li>
+        <li><b>Gateway:</b> 192.168.100.1 (router01)</li>
+        <li><b>DHCP Range:</b> 192.168.100.10 - 192.168.100.100 (12h lease)</li>
+        <li><b>Static IPs:</b> fileserver01 (.2), monitor01 (.3), admin01 (.4)</li>
+        <li><b>DHCP Leases:</b> linuxclient01 (.19), windowsclient01 (.48)</li>
+        </ul>
+      </p>
+
+      <p>
+        <h4>File Sharing</h4>
+        <ul>
+          <li><b>NFS Share</b> (fileserver01)</li>
+          <ul>
+            <li>/srv/nfsshare (fileserver01)</li>
+            <li>Accessible by linuxclient01, mounted at /mnt/nfsshare</li>
+          </ul>
+          <li><b>Samba Share</b> (fileserver01)</li>
+          <ul>
+            <li>/srv/smbshare (fileserver01)</li>
+            <li>Accessible by windowsclient01, mapped network drive at Z:\\fileserver01\smbshare</li>
+          </ul>
+        </ul>
+      </p>
+
+      <p>
+        <h4>Backups</h4>
+        <ul>
+        <li><b>Anacron</b> jobs run on fileserver01:</li>
+          <ul>
+            <li>/srv/backups</li>
+            <li>Backup nfsshare, smbshare, and linuxclient01 home directory</li>
+            <li>Compressed .tar.gz format</li>
+            <li>Timestamped archives and logging</li>
+          </ul>
+        </ul>
+      </p>
+
+      <p>
+        <h4>Monitoring</h4>
+        <ul>
+          <li><b>Prometheus</b> and <b>Grafana</b> containerized with <b>docker compose</b> on <b>monitor01</b></li>
+          <ul>
+            <li>Prometheus exposed on host port 9091, Grafana exposed on host port 3000</li>
+          </ul>        
+          <li><b>node_exporter</b> installed on Linux VMs, <b>windows_exporter</b> installed on windowsclient01</li>
+          <ul>
+            <li>port 9100 (node_exporters), port 9182 (windows_exporter)</li>
+          </ul>
+        </ul>
+      </p>
+
+      <p>
+        <h4>Admin Workflow</h4>
+        <ul>
+          <li>Use admin01 (GUI) to SSH into headless VMs</li>
+          <li>VMs maintain key-only access where applicable</li>
+        </ul>
+      </p>
+
+      <p>
+        <h4>Future improvements, taking it further</h4>
+        <ul>
+          <li>Expand Grafana dashboards with alerts, retention tuning</li>
+          <li>Add VPN access for remote management</li>
+          <li>Add software-based printer for network printer simulation</li>
+          <li>Ansible playbooks for setup</li>
+        </ul>
+      </p>
+
+    <p>
+      <i><a href="projects.html">Back to Projects page</a></i>
+    </p>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Jericho. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
