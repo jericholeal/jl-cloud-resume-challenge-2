@@ -103,6 +103,12 @@ ul ul {
   margin-bottom: 20px;
 }
 
+.about-section h3,h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
 .about-section p {
   margin-bottom: 20px;
   line-height: 22px;
@@ -118,6 +124,12 @@ ul ul {
 .projects-section h1 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.projects-section h3,h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 60px;
 }
 
 .projects-section p {
@@ -136,6 +148,12 @@ ul ul {
   margin-bottom: 20px;
 }
 
+.cloudresumechallenge-section h3,h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
 .cloudresumechallenge-section p {
   margin-bottom: 20px;
 }
@@ -144,7 +162,7 @@ ul ul {
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  line-height: 1.8;
+  line-height: 24px;
 }
 
 .netlab-section h1 {
@@ -160,12 +178,18 @@ ul ul {
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  line-height: 1.8;
+  line-height: 24px;
 }
 
 .homeserver-section h1 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.homeserver-section h3,h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 60px;
 }
 
 .homeserver-section p {
@@ -176,7 +200,7 @@ ul ul {
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  line-height: 1.8;
+  line-height: 24px;
 }
 
 .cloudinfra-section h1 {
