@@ -14,30 +14,103 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="cloudresumechallenge.html">Cloud Resume Challenge</li>
+          <li><a href="cloudresumechallenge.html">Cloud Resume Challenge</a></li>
           <li><a href="projects.html">Projects</a></li>   
         </ul>
       </nav>
     </header>
 
     <section class="cloudresumechallenge-section">
-      <h1>Cloud Resume Challenge (Take 1)</h1>
-
-      <p>Below are details of my Cloud Resume Challenge attempts and my learning experience along with it.</p>
       
-      <br>
-      <h2>Cloud Resume Challenge: First Take</h2>
-      <br>
+      <h1>Cloud Resume Challenge: Take 1 & Learning Experience</h1>
+      
+      <h3>Cloud Resume Challenge: First Take</h3>
+      
       <p>
-        Live site: <a href="https://jericho-crc-site.xyz/">jericho-crc-site.xyz</a> (password: jkocloudman)<br>
-        GitHub repository:
+        Live site: <a href="https://jericho-crc-site.xyz/">jericho-crc-site.xyz</a> --- password: jkocloudman (yes I know it's as secure as a paper curtain)<br>
+        GitHub repository: <a href="https://github.com/jericholeal/jl-cloud-resume-challenge">https://github.com/jericholeal/jl-cloud-resume-challenge</a>
       </p>
- 
+
+      <p>
+        Embarking on this project was the first time I ever touched AWS cloud services and resources and hands-on cloud engineering.
+        I dove into it with minimal prior knowledge about building things in the cloud, as the Cloud Resume Challenge originally intended.
+      </p>
+
+      <h4>What I did and learned in attempt 1:</h4>
+      
+      <ul>
+        <li>Primarily used the AWS Console and learned how things worked</li>
+        <li>Re-discovered HTML, introduced to CSS and JavaScript</li>                
+        <li>Hosted zones, DNSSEC</li>
+        <li>Encryption at rest and in transit</li>
+        <li>Serverless (Lambda, DynamoDB)</li>
+        <li>CDNs, OAC, and CDN caching</li>
+        <li>APIs and HTTP methods</li>
+        <li>JSON</li>
+        <li>How front and backends work together</li>        
+        <li>How cloud resources connect, communicate, and fit together as a whole</li>
+        <li>GitHub Actions, CI/CD</li>
+        <li>First time really using Git and GitHub for version control on an actual project</li>
+        <li>Terraform (Infrastructure as Code), as a challenge step was to convert manually-created resources into .tf configurations</li>
+      </ul> 
+        
+      <h4>Other notes:</h4>
+      
+      <ul>
+        <li>The resume on the live site of Take 1 is obviously very true, accurate, and realistic.
+          (It was a placeholder that I threw in there while doing all the backend work and I decided to leave it like that when I started my second attempt.)</li>
+        <li>For fun, I decided to do the simple auth page on the frontend to access the main index, plus an access denied page on incorrect password input
+          (I'm aware it doesn't really protect anything, but it was for fun and I wanted to see if I could, so I did)
+        </li>
+        <li>I actually <i>didn't</i> try to deploy the entire thing using Terraform as a later step prescribed.
+          It was at this point that I decided to redo the entire thing (Take 2), but starting with Terraform from the get-go.
+          I'm thinking about revisiting my Take 1 project again to mess around and improve on it with everything that I've learned so far.
+        </li>
+      </ul>
+
+      <h4>What changed between Take 1 and Take 2?</h4>
+      
+      <ul>
+        <li>Primarily used AWS CLI rather than the console (about 95% of the time) using SSO login</li>
+        <li>Used Terraform from the start rather than at the end</li>
+          <ul>
+            <li>I rehashed and improved on a lot of the configurations I made during Take 1</li>
+            <li>I decided to take a modular approach</li>
+            <li>I bootstrapped some key resources (e.g. Route53 hosted zone) and imported them before applying the entire Terraform configuration</li>
+          </ul>
+        <li>Redesigned the frontend, adding more pages and repurposing the site as more of a portfolio site rather than a resume</li>
+        <li>Used OIDC roles for GitHub Actions workflows instead of stored credentials as repository secrets</li>
+      </ul>
+
+      <h4>What I learned the second time around:</h4>
+      
+      <ul>
+        <li>Terraform modular architecture (separate modules, variables & outputs, locals, tfvars, main.tf)</li>
+        <li>Got more comfortable with HCL and writing Terraform configurations</li>
+        <li>Importing existing resources with Terraform</li>
+          <ul>
+            <li>I tried terraform apply without importing my existing Route53 zone that I manually provisioned and it caused issues 
+              (ACM certificate validation; Route53 creating new hosted zones and trying to validate with the wrong zone and NSs)</li>
+          </ul>
+        <li>Resource dependencies</li>
+          <ul>
+            <li>Ran into a lot of circular dependency problems (specifically with Route53, CloudFront, and S3)
+          </ul>
+        <li>OIDC roles</li>
+        <li>More about least-privilege access</li>
+        <li>That I can do what I set my mind to, even if at the start I'm not sure what I'm doing</li>
+      </ul> 
+      
+      <p>
+        <i><b><a href="cloudresumechallenge.html">Back to Cloud Resume Challenge page</a></b></i>
+      </p>
+    
     </section>
 
     <footer class="site-footer">
       <p>&copy; 2025 Jericho. All rights reserved.</p>
     </footer>
+    
   </div>
 </body>
 </html>

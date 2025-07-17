@@ -22,6 +22,11 @@
     </header>
     
     <section class="netlab-section">
+      
+      <p>
+        <b><i><a href="projects.html">Back to Projects page</a></i></b>
+      </p>
+      
       <h1>Virtual Network Lab</h1>
 
       <p>
@@ -29,7 +34,7 @@
       </p>
       
       <p>
-        <b>Overview</b><br>
+        <h4>Overview</h4><br>
         This HomeLab simulates an internal network with routing, file sharing, firewalls, and client/server interactions. All virtual machines are hosted on a Linux machine using QEMU/KVM and connected through a bridged virtual LAN. It’s built for practical experience with Linux system administration, networking, and infrastructure automation.
       </p>
 
@@ -67,9 +72,9 @@
             <li><b>router01:</b> DNS, DHCP, SSH (port 2222), LAN-WAN forwarding, NAT masquerade</li>
           </ul>
           <ul>
-            <li>fileserver01:</li>
+            <li><b>fileserver01:</b></li>
             <ul>
-              <li>Samba: TCP 139/445, UDP 137/138</li>
+              <li>Samba: TCP 445</li>
               <li>NFS: TCP/UDP 111, 2049, 32765-32767</li>
               <li>Ping: ICMP echo request from LAN</li>
             </ul>
@@ -80,11 +85,11 @@
       <p>
         <h4>Networking</h4>
         <ul>
-        <li><b>Subnet:</b> 192.168.100.0/24</li>
-        <li><b>Gateway:</b> 192.168.100.1 (router01)</li>
-        <li><b>DHCP Range:</b> 192.168.100.10 - 192.168.100.100 (12h lease)</li>
-        <li><b>Static IPs:</b> fileserver01 (.2), monitor01 (.3), admin01 (.4)</li>
-        <li><b>DHCP Leases:</b> linuxclient01 (.19), windowsclient01 (.48)</li>
+          <li><b>Subnet:</b> 192.168.100.0/24</li>
+          <li><b>Gateway:</b> 192.168.100.1 (router01)</li>
+          <li><b>DHCP Range:</b> 192.168.100.10 - 192.168.100.100 (12h lease)</li>
+          <li><b>Static IPs:</b> fileserver01 (.2), monitor01 (.3), admin01 (.4)</li>
+          <li><b>DHCP Leases:</b> linuxclient01 (.19), windowsclient01 (.48)</li>
         </ul>
       </p>
 
@@ -150,13 +155,15 @@
       </p>
 
     <p>
-      <i><a href="projects.html">Back to Projects page</a></i>
+      <b><i><a href="projects.html">Back to Projects page</a></i></b>
     </p>
+
     </section>
 
     <footer class="site-footer">
       <p>&copy; 2025 Jericho. All rights reserved.</p>
     </footer>
+    
   </div>
 </body>
 </html>
