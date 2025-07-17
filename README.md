@@ -4,6 +4,15 @@ My second go at the Cloud Resume Challenge.
 
 **Live Site:** [jlcrc.cloud](https://jlcrc.cloud)  
 
+## Tech Stack
+
+- **Cloud Provider**: AWS (S3, CloudFront, Lambda, DynamoDB, Route 53, ACM, IAM)
+- **Infrastructure as Code**: Terraform (modular configuration)
+- **CI/CD**: GitHub Actions with OIDC role authentication
+- **Backend**: Python (AWS Lambda function)
+- **Frontend**: HTML, CSS, JavaScript (static site)
+- **Security**: DNSSEC, HTTPS, IAM Roles, KMS, OAC
+
 ## Frontend & Hosting
 
 - Built & deployed a multi-page static website (HTML, CSS, JS) hosted on **Amazon S3**
@@ -36,7 +45,7 @@ My second go at the Cloud Resume Challenge.
 ## Security & DNS
 
 - Issued **SSL/TLS certificates** with **AWS Certificate Manager (ACM)** for secure HTTPS traffic
-- Managed DNS via **Route 53 hosted zone** using custom domain `jlcrc.cloud`
+- Managed DNS via **Route 53 hosted zone** using custom domain `jlcrc.cloud` (via NameCheap)
 - Enabled **DNSSEC** with Route 53:
   - Created a **KMS key** for DNS signing
   - Attached a **Key-Signing Key (KSK)** to the hosted zone
@@ -62,3 +71,8 @@ My second go at the Cloud Resume Challenge.
 
 ### CI/CD Security Gates
 - Integrate IAM policy validation into **GitHub Actions workflows** to block insecure policies at deployment time
+
+## References & Credits
+- **Cloud Resume Challenge** originally created by [Forrest Brazeal](https://forrestbrazeal.com/).
+- This project follows the guidelines and structure outlined in Forrest's [Cloud Resume Challenge Guidebook](https://cloudresumechallenge.dev/docs/the-challenge/aws/), which is an excellent resource for anyone looking to get a hands-on start in cloud engineering.
+- Big thanks to Forrest and the broader cloud community for making this path accessible, practical, and rewarding.
