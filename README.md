@@ -76,3 +76,7 @@ My second go at the Cloud Resume Challenge.
 - **Cloud Resume Challenge** originally created by [Forrest Brazeal](https://forrestbrazeal.com/).
 - This project follows the guidelines and structure outlined in Forrest's [Cloud Resume Challenge Guidebook](https://cloudresumechallenge.dev/docs/the-challenge/aws/), which is an excellent resource for anyone looking to get a hands-on start in cloud engineering.
 - Big thanks to Forrest and the broader cloud community for making this path accessible, practical, and rewarding.
+
+## License
+This portfolio piece is shared publicly to showcase my work.
+Please do not copy, reuse, or redistribute any content without explicit permission.
