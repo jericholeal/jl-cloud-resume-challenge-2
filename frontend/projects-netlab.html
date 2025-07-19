@@ -57,7 +57,7 @@
           <li><b>fileserver01:</b> NFS/SMB host, file sharing; Ubuntu Server (Minimized)<br></li>
           <li><b>monitor01:</b> Monitoring, Prometheus & Grafana; Ubuntu Server (Minimized)<br></li>
           <li><b>admin01:</b> Central Workstation; Debian, XFCE<br></li>
-          <li><b>linuxclient01:</b> Linux Client; AlmaLinux (Minimal)<br></li>
+          <li><b>linuxclient01:</b> Linux Client; AlmaLinux 10 (Minimal)<br></li>
           <li><b>windowsclient01:</b> Windows Client; Windows 10<br></li>
         </ul>
       </p>
@@ -65,7 +65,7 @@
       <p>
         <h4>General Rules (nftables)</h4>
         <ul>
-          <li>All chains use default drop</li>
+          <li>All input/forward chains use default drop</li>
           <li>SSH to all VMs from admin01</li>
           <li>Traffic allowed only as needed by role:</li>
           <ul>
@@ -79,6 +79,13 @@
               <li>Ping: ICMP echo request from LAN</li>
             </ul>
           </ul>
+          <ul>
+            <li><b>monitor01</b></li>
+            <ul>
+              <li>Grafana from admin01, port 3000</li>
+              <li>Prometheus from admin01, port 9091</li>
+            </ul>
+          </ul>
         </ul>
       </p>
 
@@ -87,26 +94,17 @@
         <ul>
           <li><b>Subnet:</b> 192.168.100.0/24</li>
           <li><b>Gateway:</b> 192.168.100.1 (router01)</li>
-          <li><b>DHCP Range:</b> 192.168.100.10 - 192.168.100.100 (12h lease)</li>
-          <li><b>Static IPs:</b> fileserver01 (.2), monitor01 (.3), admin01 (.4)</li>
-          <li><b>DHCP Leases:</b> linuxclient01 (.19), windowsclient01 (.48)</li>
+          <li><b>DHCP Range:</b> 192.168.100.10-100 (12h lease)</li>
+          <li><b>Static Leases: linuxclient01 (.101), windowsclient01 (.102)</b></li>
         </ul>
       </p>
 
       <p>
         <h4>File Sharing</h4>
         <ul>
-          <li><b>NFS Share</b> (fileserver01)</li>
-          <ul>
-            <li>/srv/nfsshare (fileserver01)</li>
-            <li>Accessible by linuxclient01, mounted at /mnt/nfsshare</li>
-          </ul>
-          <li><b>Samba Share</b> (fileserver01)</li>
-          <ul>
-            <li>/srv/smbshare (fileserver01)</li>
-            <li>Accessible by windowsclient01, mapped network drive at Z:\\fileserver01\smbshare</li>
-          </ul>
-        </ul>
+          <li><b>NFS Share</b> (fileserver01): /srv/nfsshare, mounted at /mnt/nfsshare on linuxclient01</li>
+          <li><b>Samba Share</b> (fileserver01): /srv/smbshare, mapped as :Z on windowsclient0
+        </ul>        
       </p>
 
       <p>
@@ -114,10 +112,9 @@
         <ul>
         <li><b>Anacron</b> jobs run on fileserver01:</li>
           <ul>
-            <li>/srv/backups</li>
-            <li>Backup nfsshare, smbshare, and linuxclient01 home directory</li>
-            <li>Compressed .tar.gz format</li>
-            <li>Timestamped archives and logging</li>
+            <li>Scripts on fileserver01 scheduled with anacron</li>            
+            <li>.tar.gz archives, timestamped</li>
+            <li>Stored locally, timestamped logs written to /var/log/backups</li>
           </ul>
         </ul>
       </p>
@@ -127,12 +124,9 @@
         <ul>
           <li><b>Prometheus</b> and <b>Grafana</b> containerized with <b>docker compose</b> on <b>monitor01</b></li>
           <ul>
-            <li>Prometheus exposed on host port 9091, Grafana exposed on host port 3000</li>
+            <li>Ports: Prometheus 9091, Grafana 3000</li>
           </ul>        
-          <li><b>node_exporter</b> installed on Linux VMs, <b>windows_exporter</b> installed on windowsclient01</li>
-          <ul>
-            <li>port 9100 (node_exporters), port 9182 (windows_exporter)</li>
-          </ul>
+          <li><b>node_exporter</b> on Linux VMs (9100), <b>windows_exporter</b> on Windows (9182)</li>          
         </ul>
       </p>
 
@@ -147,12 +141,99 @@
       <p>
         <h4>Future improvements, taking it further</h4>
         <ul>
-          <li>Expand Grafana dashboards with alerts, retention tuning</li>
-          <li>Add VPN access for remote management</li>
-          <li>Add software-based printer for network printer simulation</li>
-          <li>Ansible playbooks for setup</li>
+          <li>Grafana alerts, dashboard tuning</li>
+          <li>VPN access, remote lab control</li>
+          <li>Simulated network printer</li>
+          <li>Ansible playbooks for automation</li>
+          <li>Dedicated backups VM or cloud backups (e.g. Amazon S3)</li>
+          <li>Central LDAP authentication</li>
         </ul>
       </p>
+
+      <p>
+        <h4>Key Learning & Practice Areas</h4>
+        <ul>
+          <li>subnetting & DHCP leases with dnsmasq</li>
+          <li>nftables & rulesets</li>
+          <li>Secure SSH config</li>
+          <li>Using Prometheus & Grafana</li>
+          <li>Using Docker</li>
+          <li>Filesharing with NFS & Samba</li>
+          <li>Bash scripting for backup automation</li>
+          <li>Troubleshooting networking</li>
+        </ul>
+      </p>
+
+      <p>
+        <h4>Problems & Learning Experiences</h4>
+        <p>
+          <b>Host Bridge Issues</b>
+          <ul>
+            <li>VMs not connecting to host bridge device properly</li>
+            <li>Fixed by assigning 192.168.100.254/24 to bridge device and 192.168.100.1 as gateway & DNS</li>
+          </ul>
+        </p>
+        <p>
+          <b>No internet on linuxclient01</b>
+          <ul>
+            <li>DHCP worked, router01 pinged, but no external access</li>
+            <li>Port forwarding wasn't permanently enabled on router01 
+              (missing ipv4.ip_forward = 1 in sysctl.conf)
+            </li>
+          </ul>
+        </p>
+        <p>
+          <b>Switched from iptables to nftables</b>
+          <ul>
+            <li>Learned nftables is the modern replacement, switched to it</li>
+            <li>Cleaner & better design</li>
+          </ul>
+        </p>
+        <p>
+          <b>Docker snap weirdness</b>
+          <ul>
+            <li>Initial install of Docker via snap on monitor01 had issues</li>
+            <li>Replaced with docker.io from apt</li>
+          </ul>
+        </p>
+        <p>
+          <b>I actually created admin01 late</b>
+          <ul>
+            <li>Originally using router01 as central workstation</li>
+            <li>Set up admin01 as central GUI workstation, set up Grafana</li>
+          </ul>
+        </p>
+        <p>
+          <b>Docker containers stuck restarting</b>
+          <ul>
+            <li>Fixed by setting correct volume directory permissions</li>
+            <li>Grafana: 472:472, Prometheus: 65534:65534</li>            
+          </ul>
+        </p>
+        <p>
+          <b>Prometheus unreachable from Grafana</b>
+          <ul>
+            <li>Initially tried connecting Grafana to Prometheus as a data source 
+              at monitor01's IP address, port 9091</li>
+            <li>Realized Grafana & Prometheus are on the same Docker network, 
+              used internal path instead of host IP and port</li>
+          </ul>
+        </p>
+        <p>
+          <b>Trouble accessing smbshare on fileserver01 from windowsclient01</b>
+          <ul>
+            <li>fileserver01 pinged, but \\fileserver01\smbshare network drive mapping failed</li>
+            <li>Found sharename typo in smb.conf, fixed it</li>            
+          </ul>
+        </p>
+        <p>
+          <b>linuxclient01 backup problems</b>
+          <ul>
+            <li>Added static DHCP lease to linuxclient01 to ensure consistent IP for SSH-based backups</li>
+          </ul>
+        </p>
+      </p>
+
 
     <p>
       <b><i><a href="projects.html">Back to Projects page</a></i></b>
