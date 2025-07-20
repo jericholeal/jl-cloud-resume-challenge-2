@@ -1,4 +1,4 @@
-# Cloud Resume Challenge: Second Take (You're looking at it)
+# Cloud Resume Challenge: Second Take
 
 My second go at the Cloud Resume Challenge.
 
