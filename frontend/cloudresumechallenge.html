@@ -21,9 +21,19 @@
       </nav>
     </header>
 
-    <section class="cloudresumechallenge-section">
+    <section class="cloudresumechallenge-section">          
+    
       <h1>My Cloud Resume Challenge Attempt(s)</h1>
             
+      <p>
+        This website is the result of my attempt at the 
+        <b><a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/" target="_blank" rel="noopener noreferrer">Cloud Resume Challenge</a></b>
+        originally created by <b><a href="https://forrestbrazeal.com/" target="_blank" rel="noopener noreferrer">Forrest Brazeal</a></b>,
+        a well-known cloud architect, writer, speaker, and AWS Community Hero who designed the challenge
+        to help people build real-world cloud skills and give aspiring cloud professionals a structured, hands-on way
+        to showcase their skills with real infrastructure.
+      </p>
+
       <p>This is actually the second version of my Cloud Resume Challenge. Below is an overview, and further down, you can read more about my journey through this.</p>
 
       <p>
@@ -39,11 +49,11 @@
 
       <p>
         <ul>
-          <li>Deployed a multi-page static website (HTML, CSS, JS) on S3, served via CloudFront with OAC for secure access, public access blocked</li>
-          <li>Implemented a session-based visitor counter using API Gateway, Lambda (Python), and DynamoDB (NoSQL)</li>
+          <li>Deployed a multi-page static website (HTML, CSS, JS) on S3, served via CloudFront with OAC</li>
+          <li>Implemented a session-based visitor counter using API Gateway, Lambda, and DynamoDB</li>
           <li>Defined fully modular Terraform configurations (ACM, API Gateway, CloudFront, DynamoDB, IAM, Lambda, Route53, S3) with remote state (S3 + DynamoDB lock)</li>
           <li>Bootstrapped key resources, then imported and managed all infrastructure with Terraform, practicing least-privilege and modular design best practices</li>
-          <li>Built secure CI/CD pipelines using GitHub Actions + OIDC, with separate workflows for frontend, backend, and Lambda packaging</li>
+          <li>Built CI/CD pipelines using GitHub Actions + OIDC, with separate workflows for frontend, backend, and Lambda packaging</li>
           <li>Secured traffic with ACM TLS certificates, custom domain via Route 53, and full DNSSEC setup (KMS-signed, DS record published on NameCheap)</li>
           <li>Used IAM Identity Center (SSO) for CLI access and AWS Organizations for account and role isolation</li>
           <li>Planned enhancements: Add CloudWatch alerts, Slack/PagerDuty notifications, IAM policy validation, and CI/CD security gates</li>
@@ -59,11 +69,13 @@
       </p>
 
       <p>
-        As I aspire to build a career in cloud engineering, 
-        I wanted to do a project where I would just dive into the deep end and get my hands dirty. 
+        My long-term goal is to build a career in cloud engineering, so 
+        I wanted to do a project where I could just dive into the deep end and get my hands dirty. 
         I found the Cloud Resume Challenge and took the leap with AWS as my cloud provider of choice, 
-        this being my first time ever touching AWS and its resources and services. 
+        this being my first time ever touching AWS and its resources and services.
         I got my hands on the AWS console and learned about the different resources and how the pieces fit together. 
+      </p>
+      <p>       
         Near the end of this first attempt, I started to realize things that I could've done better and started imagining what I would do if I did it over again. 
         So, I just decided to do it over again, with those things in mind, and here we are now.
       </p>

@@ -26,10 +26,10 @@
 
       <p>Below are details of my Cloud Resume Challenge attempts and my learning experience along with it.</p>
       
-      <h2>Cloud Resume Challenge: Second Take (You're looking at it)</h2>
+      <h2>Cloud Resume Challenge: Second Take (This site)</h2>
       
       <p>
-        Live site: <a href="https://jlcrc.cloud">jlcrc.cloud</a><br>
+        Live site: <b><a href="https://jlcrc.cloud">jlcrc.cloud</a></b><br>
         GitHub repository: <a href="https://github.com/jericholeal/jl-cloud-resume-challenge-2" target="_blank" rel="noopener noreferrer">https://github.com/jericholeal/jl-cloud-resume-challenge-2</a>
       </p>
 
@@ -39,7 +39,7 @@
         <ul>
           <li>Built & deployed a multi-page static website (HTML, CSS, JS) hosted on Amazon S3</li>
           <li>Served content via a CloudFront distribution using Origin Access Control (OAC) with public access blocks</li>
-          <li>Implemented session-based visitor counter display on the index page (sessionStorage to limit one increment per session)</li>
+          <li>Implemented a session-based visitor counter display on the index page (sessionStorage to limit one increment per session)</li>
         </ul>
       </p>
 
@@ -47,8 +47,8 @@
       
       <p>
         <ul>
-          <li>Designed fully modular Terraform configurations with separate modules for each AWS service (ACM, API Gateway, CloudFront, DynamoDB, IAM, Lambda, Route53, S3)</li>
-          <li>Managed variables using variables.tf, terraform.tfvars, and locals.tf for consistency, reusability, and neatness</li>
+          <li>Designed fully modular Terraform configurations with separate modules for each AWS service (ACM, API Gateway, CloudFront, DynamoDB, IAM, Lambda, Route53, S3, KMS, OIDC)</li>
+          <li>Managed variables with variables.tf, terraform.tfvars, and locals.tf</li>
           <li>Created secure Terraform remote backend (in S3) with state locking (DynamoDB)</li>
           <li>Manually bootstrapped core resources (S3, DynamoDB, OIDC roles), then imported and managed them with Terraform</li>
           <li>Practiced best practices: least-privilege IAM roles, tagging, modular architecture</li>
