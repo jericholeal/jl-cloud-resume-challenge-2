@@ -1,6 +1,6 @@
 /* Reset + Global Styles */
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;    
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -14,7 +14,8 @@ body {
 
 /* Headings */
 h1, h2, h3, h4 {
-    font-weight: 900;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
     text-align: center;
 }
 
@@ -27,6 +28,7 @@ h1, h2, h3, h4 {
 
 /* Navigation */
 .navbar ul {
+    font-family: 'Inter', sans-serif;
     list-style: none;
     display: flex;
     justify-content: center;
@@ -35,9 +37,10 @@ h1, h2, h3, h4 {
 }
 
 .navbar li a {
+    font-family: 'Inter', sans-serif;  
     text-decoration: none;
     color: black;
-    font-weight: 700;
+    font-weight: 500;
     padding: 10px;
     display: inline-block;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -70,6 +73,10 @@ ul ul {
   padding-left: 20px;  
 }
 
+ul li {
+  margin-bottom: 0.5em;
+}
+
 /* Visitor Counter Section */
 .visitor-counter {
     display: flex;
@@ -82,7 +89,8 @@ ul ul {
 /* Sections */
 
 .welcome-section {
-  max-width: 500px;    
+  max-width: 500px;
+  align-items: center;
   margin: 40px auto;
   padding: 30px;
 }
@@ -98,13 +106,18 @@ ul ul {
 }
 
 .about-section {
-  max-width: 900px;
+  max-width: 700px;
   margin: 40px auto;
   padding: 30px;
 }
 
-.about-section h1,h2,h3,h4 {
-  text-align: center;  
+.about-section h1 {
+  text-align: center;
+}
+
+.about-section h2,h3,h4 {
+  text-align: left;
+  font-weight: 500;  
   margin-top: 20px;
 }
 
@@ -114,7 +127,7 @@ ul ul {
 }
 
 .projects-section {
-  max-width: 900px;
+  max-width: 700px;
   margin: 40px auto;
   padding: 30px;
   line-height: 28px;
@@ -136,7 +149,7 @@ ul ul {
 }
 
 .cloudresumechallenge-section {
-  max-width: 900px;
+  max-width: 700px;
   margin: 40px auto;
   padding: 30px;
   line-height: 28px;
@@ -213,7 +226,7 @@ ul ul {
 
 /* Footer */
 .site-footer {
-    text-align: center;
+    text-align: center;    
     margin-top: 60px;
     font-size: 0.9rem;
     color: #333;
@@ -222,7 +235,7 @@ ul ul {
 /* Responsive Adjustments */
 @media (max-width: 900px) {
     .navbar ul {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: 10px;
     }
