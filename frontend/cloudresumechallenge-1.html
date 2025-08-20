@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cloud Resume Challenge (Take 1 & Learning Experience) - jlcrc.cloud</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,95,100..900;1,95,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -20,13 +20,11 @@
       </nav>
     </header>
 
-    <section class="cloudresumechallenge-section">
+    <section class="cloudresumechallenge-section">   
       
-      <h1>Cloud Resume Challenge: Take 1 & Learning Experience</h1>
-      
-      <br>
       <p>
-        <h2>Cloud Resume Challenge: First Take</h2>
+        <h2><b>Cloud Resume Challenge:</b></br>
+        First Attempt & Learning Experience</h2>
       </p>
       
       <p>
@@ -35,8 +33,8 @@
       </p>
 
       <p>
-        Embarking on this project was the first time I ever touched AWS cloud services and resources and hands-on cloud engineering.
-        I dove into it with minimal prior knowledge about building things in the cloud, as the Cloud Resume Challenge originally intended.
+        This was the first time I ever touched AWS cloud services and resources and tried cloud engineering.
+        I dove in with minimal prior knowledge, as the Cloud Resume Challenge originally intended.
       </p>
 
       <p>
@@ -55,7 +53,7 @@
         <li>How front and backends work together</li>        
         <li>How cloud resources connect, communicate, and fit together as a whole</li>
         <li>GitHub Actions, CI/CD</li>
-        <li>First time really using Git and GitHub for version control on an actual project</li>
+        <li>First time really using Git and GitHub for version control</li>
         <li>Terraform (Infrastructure as Code), as a challenge step was to convert manually-created resources into .tf configurations</li>
       </ul> 
       
@@ -64,33 +62,32 @@
       </p>
 
       <ul>
-        <li>The resume on the live site of Take 1 is obviously very true, accurate, and realistic.
-          (It was a placeholder that I threw in there while doing all the backend work and I decided to leave it like that when I started my second attempt.)</li>        
-        <li>I actually <i>didn't</i> try to deploy the entire thing using Terraform as a later step prescribed.
-          It was at this point that I decided to redo the entire thing (Take 2), but starting with Terraform from the get-go.
-          I'm thinking about revisiting my Take 1 project again to mess around and improve on it with everything that I've learned so far.
+        <li>The resume on my first Cloud Resume Challenge site is obviously very true, accurate, and realistic.
+          (It was a placeholder while doing all the backend work and I decided to leave it like that when I started my second attempt.)</li>        
+        <li>I actually <i>didn't</i> try to deploy the site using Terraform as a later step prescribed.
+          It was at this point that I decided to redo the entire thing (this site), but starting with Terraform from the get-go.
         </li>
       </ul>
 
       <br>
       <p>
-        <h2>What changed between Take 1 and Take 2?</h2>
+        <h2>What changed between my first and second attempts?</h2>
       </p>
       
       <ul>
         <li>Primarily used AWS CLI rather than the console (about 95% of the time) using SSO login</li>
         <li>Used Terraform from the start rather than at the end</li>
           <ul>
-            <li>I rehashed and improved on a lot of the configurations I made during Take 1</li>
-            <li>I decided to take a modular approach</li>
-            <li>I bootstrapped some key resources (e.g. Route53 hosted zone) and imported them before applying the entire Terraform configuration</li>
+            <li>Rehashed and improved on a lot of the configurations I made during Take 1</li>
+            <li>Took a modular approach</li>
+            <li>Bootstrapped some key resources (e.g. Route53 hosted zone) and imported them before applying the Terraform configuration</li>
           </ul>
-        <li>Redesigned the frontend, adding more pages and repurposing the site as more of a portfolio site rather than a resume</li>
+        <li>Redesigned the frontend and added pages</li>
         <li>Used OIDC roles for GitHub Actions workflows instead of stored credentials as repository secrets</li>
       </ul>
       
       <p>
-        <h2>What I learned the second time around:</h2>
+        <h2>What did I learn the second time around?</h2>
       </p>
       
       <ul>
